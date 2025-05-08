@@ -1,0 +1,20 @@
+{
+  "context_title": "",
+  "4xx": {
+    "403": {
+      "label": "Access Denied",
+      "description": "This action is not permitted for your account. Please check your access rights or contact our support for assistance."
+    },
+    "404": {
+      "label": "Page not found",
+      "description": "It's looking like you may have taken a wrong turn. Don't worry... it happens to the best of us. Here's a little tip that might help you get back on track."
+    }
+  },
+  "5xx": {
+    "500": {
+      "label": "Internal Server Error",
+      "description": ""
+    }
+  },
+  "back_to_home": "Back to Home"
+}

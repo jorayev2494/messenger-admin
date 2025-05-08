@@ -1,0 +1,48 @@
+{
+  "supported-locales": {
+    "en": "English",
+    "ru": "Русский"
+  },
+  "gender": {
+    "label": "Gender",
+    "items": {
+      "male": "Male",
+      "female": "Female"
+    }
+  },
+  "marital_status": {
+    "label": "Marital Status",
+    "items": {
+      "single": "Single",
+      "married": "Married"
+    }
+  },
+  "error": {
+    "unauthorized_action": {
+      "title": "Access Denied",
+      "message": "This action is not permitted for your account. Please check your access rights or contact our support for assistance."
+    }
+  },  
+  "pagination": {
+    "info": "Showing {zero} to {first} of {two} entries"
+  },
+  "translations": "Translates",
+  "actions": "Actions",
+  "create": "Create",
+  "update": "Update",
+  "edit": "Edit",
+  "show": "Show",
+  "delete": "Delete",
+  "send": "Send",
+  "save": "Save",
+  "save_changes": "Save changes",
+  "created_at": "Created at",
+  "clear": "Clear",
+  "clear_all": "Clear all",
+  "upload": "Upload",
+  "uploaded": "Uploaded",
+  "all": "All",
+  "search_btn": "Search",
+  "notification": "Notification",
+  "back_to": "Back to"
+}

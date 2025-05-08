@@ -1,0 +1,8 @@
+{
+  "context_title": "Profile | Profile",
+  "flash_messages": {
+    "success": {
+      "profile_was_updated": "Profile was updated"
+    }
+  }
+}

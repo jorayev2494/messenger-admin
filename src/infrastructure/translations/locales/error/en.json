@@ -1,0 +1,6 @@
+{
+  "unauthorized_action": {
+    "title": "Access Denied",
+    "message": "This action is not permitted for your account. Please check your access rights or contact our support for assistance."
+  }
+}

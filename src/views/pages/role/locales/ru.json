@@ -1,0 +1,25 @@
+{
+  "context_title": "Роль | Роли",
+  "columns": {
+    "value": "Значение",
+    "description": "Описание",
+    "is_super_admin": "Супер администратор?"
+  },
+  "form": {
+    "value": "Значение",
+    "description": "Описание",
+    "is_super_admin": "Супер администратор?",
+    "placeholder": {
+      "value": "Введите значение",
+      "description": "Введите описание",
+      "is_super_admin": "Супер администратор?"
+    }
+  },
+  "flash_messages": {
+    "success": {
+      "role_was_created": "Роль была создана",
+      "role_was_updated": "Роль была обновлена",
+      "role_was_deleted": "Роль была удалена"
+    }
+  }
+}

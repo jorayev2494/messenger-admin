@@ -1,0 +1,8 @@
+{
+  "context_title": "Центрифуга | Центрифуги",
+  "flash_messages": {
+    "success": {
+      "blank_was_created": "Центрифуга была создана"
+    }
+  }
+}

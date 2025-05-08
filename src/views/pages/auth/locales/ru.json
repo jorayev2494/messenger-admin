@@ -1,0 +1,56 @@
+{
+  "login": {
+    "title": "Авторизоваться",
+    "enter_your_email_address_and_password_to_access_admin_panel": "Введите свой адрес электронной почты и пароль для доступа к панели администратора.",
+    "sign_in": "Войти",
+    "forgot_your_password?": "Забыли пароль?",
+    "form": {
+      "email": "Адрес электронной почты",
+      "password": "Пароль",
+      "placeholder": {
+        "email": "Введите свою электронную почту",
+        "password": "Введите свой пароль"
+      }
+    },
+    "flash_messages": {
+      "success": {
+        "welcome": "Добро пожаловать {first_name}! 😇"
+      }
+    }
+  },
+
+  "forgot_password": {
+    "title": "Забыли пароль",
+    "enter_your_email_address_and_we_will_send_you_an_email_with_instructions_to_reset_your_password": "Введите свой адрес электронной почты, и мы отправим вам электронное письмо с инструкциями для сброса вашего пароля.",
+    "form": {
+      "email": "Адрес электронной почты",
+      "placeholder": {
+        "email": "Введите свою электронную почту"
+      }
+    },
+    "flash_messages": {
+      "success": {
+        "forgot_password_sent": "Восстановите сообщение о отправке пароля"
+      }
+    }
+  },
+
+  "restore_password": {
+    "title": "Восстановить пароль",
+    "form": {
+      "code": "Код",
+      "new_password": "Новый пароль",
+      "confirm_new_password": "Подтвердите новый пароль",
+      "placeholder": {
+        "code": "Введите код",
+        "new_password": "Введите новый пароль",
+        "confirm_new_password": "Введите подтвердить новый пароль"
+      }
+    },
+    "flash_messages": {
+      "success": {
+        "restore_password_sent": "Ваш пароль успешно восстановился!"
+      }
+    }
+  }
+}

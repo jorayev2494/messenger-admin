@@ -1,0 +1,25 @@
+{
+  "context_title": "Менеджер | Менеджеры",
+  "columns": {
+    "email": "Электронная почта",
+    "first_name": "Имя",
+    "last_name": "Фамилия"
+  },
+  "form": {
+    "email": "Адрес электронной почты",
+    "first_name": "Имя",
+    "last_name": "Фамилия",
+    "placeholder": {
+      "email": "Введите адрес электронной почты",
+      "first_name": "Введите имя",
+      "last_name": "Введите фамилию"
+    }
+  },
+  "flash_messages": {
+    "success": {
+      "manager_was_created": "Менеджер был создан",
+      "manager_was_updated": "Менеджер был обновлен",
+      "manager_was_deleted": "Менеджер был удален"
+    }
+  }
+}

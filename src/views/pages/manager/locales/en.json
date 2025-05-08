@@ -1,0 +1,25 @@
+{
+  "context_title": "Manager | Managers",
+  "columns": {
+    "email": "Email",
+    "first_name": "First name",
+    "last_name": "Last name"
+  },
+  "form": {
+    "email": "Email address",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "placeholder": {
+      "email": "Enter email address",
+      "first_name": "Enter first name",
+      "last_name": "Enter last name"
+    }
+  },
+  "flash_messages": {
+    "success": {
+      "manager_was_created": "Manager was created",
+      "manager_was_updated": "Manager was updated",
+      "manager_was_deleted": "Manager was deleted"
+    }
+  }
+}

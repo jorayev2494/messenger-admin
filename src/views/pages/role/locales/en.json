@@ -1,0 +1,25 @@
+{
+  "context_title": "Role | Roles",
+  "columns": {
+    "value": "Value",
+    "description": "Description",
+    "is_super_admin": "Is super admin"
+  },
+  "form": {
+    "value": "Value",
+    "description": "Description",
+    "is_super_admin": "Is super admin",
+    "placeholder": {
+      "value": "Enter value",
+      "description": "Enter description",
+      "is_super_admin": "Is super admin"
+    }
+  },
+  "flash_messages": {
+    "success": {
+      "role_was_created": "Role was created",
+      "role_was_updated": "Role was updated",
+      "role_was_deleted": "Role was deleted"
+    }
+  }
+}

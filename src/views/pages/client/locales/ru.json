@@ -1,0 +1,25 @@
+{
+  "context_title": "Клиент | Клиенты",
+  "columns": {
+    "email": "Электронная почта",
+    "first_name": "Имя",
+    "last_name": "Фамилия"
+  },
+  "form": {
+    "email": "Адрес электронной почты",
+    "first_name": "Имя",
+    "last_name": "Фамилия",
+    "placeholder": {
+      "email": "Введите адрес электронной почты",
+      "first_name": "Введите имя",
+      "last_name": "Введите фамилию"
+    }
+  },
+  "flash_messages": {
+    "success": {
+      "client_was_created": "Клиент был создан",
+      "client_was_updated": "Клиент был обновлен",
+      "client_was_deleted": "Клиент был удален"
+    }
+  }
+}

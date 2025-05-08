@@ -1,0 +1,8 @@
+{
+  "context_title": "Centrifuge | centrifuges",
+  "flash_messages": {
+    "success": {
+      "blank_was_created": "Centrifuge was created"
+    }
+  }
+}

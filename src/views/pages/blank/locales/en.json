@@ -1,0 +1,8 @@
+{
+  "context_title": "Blank | Blanks",
+  "flash_messages": {
+    "success": {
+      "blank_was_created": "Blank was created"
+    }
+  }
+}
