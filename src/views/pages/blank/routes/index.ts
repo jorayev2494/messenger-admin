@@ -1,12 +1,15 @@
+import { makeRouterPermission } from '@/services/acl/useACLProtection'
 import { RouteName } from './RouteName'
+import { ResourceAction } from '../acl/ACLEnum'
 
 export default [
   {
-    path: 'managers',
+    path: 'blanks',
     name: RouteName.INDEX,
     component: () => import('../pages/index/Index.vue'),
     meta: {
-      title: 'manager.context_title',
+      title: 'blank.context_title',
+      ...makeRouterPermission([ResourceAction.RESOURCE_INDEX]),
       breadcrumbs: [
         {
           label: 'dashboard.context_title',
@@ -15,9 +18,9 @@ export default [
           },
         },
         {
-          label: 'manager.context_title',
+          label: 'blank.context_title',
           route: {
-            name: 'manager-index',
+            name: RouteName.INDEX,
           },
         },
       ],

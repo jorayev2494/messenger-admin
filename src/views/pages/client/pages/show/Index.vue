@@ -4,6 +4,7 @@
 
   const {
     form,
+    avatarPreview,
     inputs,
   } = useBehavior()
 </script>
@@ -15,6 +16,21 @@
         <!-- <h5 class="card-header bg-light-subtle">Featured</h5> -->
         <div class="card-body">
           <h5 class="card-title">Special title treatment</h5>
+          <div class="form-group row">
+            <div class="row">
+              <div class="col-lg-3">
+                <label for="avatar">
+                  <img :src="avatarPreview" :alt="avatarPreview" class="img-fluid avatar-lg rounded-circle" />
+                </label>
+              </div>
+              <div class="col-lg-6">
+                
+              </div>
+            </div>
+          </div>
+
+          <hr class="mx-2 my-4">
+
           <InputsAndEditors :form="form" :inputs="inputs" />
         </div>
       </div>

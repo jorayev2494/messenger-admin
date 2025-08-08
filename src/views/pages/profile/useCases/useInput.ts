@@ -28,4 +28,12 @@ export const useInput = (): InputAndEditorInterface[] => [
     required: true,
     placeholder: 'manager.form.placeholder.last_name',
   },
+  // {
+  //   tag: 'input',
+  //   type: 'file',
+  //   name: 'avatar',
+  //   field: 'value',
+  //   label: 'manager.form.avatar',
+  //   required: false,
+  // },
 ]

@@ -1,0 +1,31 @@
+{
+  "context_title": "Машин | Машины",
+  "columns": {
+    "owner": "Владелец",
+    "brand": "Бренд",
+    "model": "Модель",
+    "color": "Цвет",
+    "vin": "VIN"
+  },
+  "form": {
+    "owner": "Владелец",
+    "brand": "Бренд",
+    "model": "Модель",
+    "color": "Цвет",
+    "vin": "Vin",
+    "placeholder": {
+      "owner": "Выберите владелеца",
+      "brand": "Выберите бренда",
+      "model": "Выберите моделя",
+      "color": "Выберите цвет",
+      "vin": "Ведите VIN"
+    }
+  },
+  "flash_messages": {
+    "success": {
+      "car_was_created": "Машина была создана",
+      "car_was_updated": "Машина была обновлен",
+      "car_was_deleted": "Машина была удалена"
+    }
+  }
+}

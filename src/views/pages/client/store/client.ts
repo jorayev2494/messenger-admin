@@ -8,6 +8,12 @@ export const useClientStore = defineStore('client', {
   state: () => ({}),
   getters: {},
   actions: {
+    listAsync: async (): Promise<AxiosResponse<ClientInterface[]>> => {
+      return await new Promise<AxiosResponse<ClientInterface[]>>((resolve, reject) => {
+        return httpClient.get<ClientInterface[]>('/clients/list').then(resolve).catch(reject)
+      })
+    },
+
     loadClientsAsync: async ({
       params,
     }: any): Promise<AxiosResponse<PaginateInterface<ClientInterface>>> => {
@@ -33,9 +39,15 @@ export const useClientStore = defineStore('client', {
       })
     },
 
-    updateAsync: async (uuid: string, data: object): Promise<AxiosResponse> => {
+    updateAsync: async (uuid: string, data: FormData): Promise<AxiosResponse> => {
       return await new Promise<AxiosResponse>((resolve, reject) => {
-        return httpClient.put(`/clients/${uuid}`, data).then(resolve).catch(reject)
+        const headers = {
+          'Content-Type': 'multipart/form-data',
+        }
+
+        data.append('_method', 'PUT')
+
+        return httpClient.post(`/clients/${uuid}`, data, { headers }).then(resolve).catch(reject)
       })
     },
 

@@ -93,7 +93,7 @@ export default function ({ props }) {
     permissions.value.forEach(({ resource, action }: PermissionInterface, idx: number) => {
       const col = {
         field: `actions.${action}.action`,
-        title: action,
+        title: action, // ?.toUpperCase(),
         // headerClass: 'float-none',
         // cellClass: 'text-center',
         cellClass: 'bg-secondary-subtle text-light',

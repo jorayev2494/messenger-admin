@@ -37,6 +37,7 @@
       :isServerMode="true"
       :paginationInfo="$t('system.pagination.info', { zero: '{0}', first: '{1}', two: '{2}' })"
       skin="bh-table-hover"
+      :cellClass="'text-muted'"
       @change="changeServer"
     >
       <template #actions="data">

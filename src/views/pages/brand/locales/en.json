@@ -1,0 +1,31 @@
+{
+  "context_title": "Brand | Brands",
+  "columns": {
+    "slug": "Slug",
+    "name": "Name",
+    "founded_year": "Founded year",
+    "logo": "Logo",
+    "is_active": "Is active"
+  },
+  "form": {
+    "slug": "Slug",
+    "name": "Name",
+    "founded_year": "Founded year",
+    "logo": "Logo",
+    "is_active": "Is active",
+    "placeholder": {
+      "slug": "Enter slug",
+      "name": "Enter name",
+      "founded_year": "Enter founded year",
+      "logo": "Enter logo",
+      "is_active": "Is active"
+    }
+  },
+  "flash_messages": {
+    "success": {
+      "brand_was_created": "Brand was created",
+      "brand_was_updated": "Brand was updated",
+      "brand_was_deleted": "Brand was deleted"
+    }
+  }
+}

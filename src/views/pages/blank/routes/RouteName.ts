@@ -1,3 +1,3 @@
 export enum RouteName {
-  INDEX = 'index',
+  INDEX = 'blank-index',
 }

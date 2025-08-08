@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { ResourceAction } from '../../acl/ACLEnum';
-import { RouteName } from '../../routes/RouteName';
+  import { RouteName } from '../../routes/RouteName';
   import useBehavior from './useBehavior';
 
   const {
@@ -39,14 +39,21 @@ import { RouteName } from '../../routes/RouteName';
       :isServerMode="true"
       :paginationInfo="$t('system.pagination.info', { zero: '{0}', first: '{1}', two: '{2}' })"
       skin="bh-table-hover"
+      :cellClass="'text-muted'"
       @change="changeServer"
     >
 
-      <template #logo="data">
-        <div class="avatar-showcase">
-          <div class="avatars">
-            <div class="avatar">
-              <img class="img-50 avatar-img rounded b-r-15" :src="data.value.logo" :alt="data.value.logo">
+      <template #info="data">
+        <div class="row">
+          <div class="col-md-3">
+            <img :src="data.value.avatar" :alt="data.value.avatar" class="img-fluid avatar-md rounded-circle" />
+          </div>
+          <div class="col-md-4">
+            <p class="mt-0">
+              {{ data.value.first_name }} {{ data.value.last_name }}
+            </p>
+            <div class="col-mt-1">
+              {{ data.value.email }}
             </div>
           </div>
         </div>

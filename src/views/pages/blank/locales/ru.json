@@ -2,7 +2,7 @@
   "context_title": "Пустой | Пустой",
   "flash_messages": {
     "success": {
-      "blank_was_created": "Бланк был создан"
+      "blank_was_created": "Пустой был создан"
     }
   }
 }

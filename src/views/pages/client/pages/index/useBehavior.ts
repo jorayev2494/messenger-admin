@@ -9,18 +9,21 @@ import type { AxiosResponse } from 'axios'
 import type { PaginateInterface } from '@/utils/paginate/entities/contracts/PaginateInterface'
 import { useACLProtection } from '@/services/acl/useACLProtection'
 import { ResourceAction } from '../../acl/ACLEnum'
+import useChangeImage from '@/views/components/changeImage/useChangeImage'
 
 export default function () {
   const store = useClientStore()
   const paginator = usePaginator<ClientInterface>()
   const { t } = useI18n()
   const loader = useLoader()
+  const { preview: avatarPreview } = useChangeImage()
   const { checkPermissions, protectPermission } = useACLProtection()
 
   const columns: object[] = [
-    { field: 'email', title: t('client.columns.email') },
-    { field: 'first_name', title: t('client.columns.first_name') },
-    { field: 'last_name', title: t('client.columns.last_name') },
+    { field: 'info', title: t('client.columns.info') },
+    // { field: 'email', title: t('client.columns.email') },
+    // { field: 'first_name', title: t('client.columns.first_name') },
+    // { field: 'last_name', title: t('client.columns.last_name') },
     {
       field: 'actions',
       title: t('system.actions'),
@@ -37,7 +40,11 @@ export default function () {
 
   const clients: Ref<ClientInterface[]> = ref([])
 
-  const managerClient = (manager: ClientInterface): ClientInterface => manager
+  const clientMapper = (client: ClientInterface): ClientInterface => {
+    client.avatar = client.avatar !== null ? client.avatar?.url : avatarPreview.value
+
+    return client
+  }
 
   const loadClient = () => {
     loader.start()
@@ -47,7 +54,7 @@ export default function () {
         const { data } = response
 
         paginator.setMetaData(data)
-        clients.value = data.data.map(managerClient)
+        clients.value = data.data.map(clientMapper)
       })
       .finally(loader.stop)
   }

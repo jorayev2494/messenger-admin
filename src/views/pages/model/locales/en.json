@@ -1,0 +1,46 @@
+{
+  "context_title": "Model | Models",
+  "columns": {
+    "slug": "Slug",
+    "name": "Name",
+    "brand": "Brand",
+    "generation": "Generation",
+    "body_type": "Body type",
+    "engine_type": "Engine type",
+    "seats_count": "Seats type",
+    "founded_year": "Founded year",
+    "logo": "Logo",
+    "is_active": "Is active"
+  },
+  "form": {
+    "slug": "Slug",
+    "name": "Name",
+    "brand": "Brand",
+    "generation": "Generation",
+    "body_type": "Body type",
+    "engine_type": "Engine type",
+    "seats_count": "Seats type",
+    "founded_year": "Founded year",
+    "logo": "Logo",
+    "is_active": "Is active",
+    "placeholder": {
+      "slug": "Enter slug",
+      "name": "Enter name",
+      "brand": "Select brand",
+      "generation": "Enter generation",
+      "body_type": "Enter body type",
+      "engine_type": "Enter engine type",
+      "seats_count": "Enter seats type",
+      "founded_year": "Enter founded year",
+      "logo": "Enter logo",
+      "is_active": "Is active"
+    }
+  },
+  "flash_messages": {
+    "success": {
+      "model_was_created": "Model was created",
+      "model_was_updated": "Model was updated",
+      "model_was_deleted": "Model was deleted"
+    }
+  }
+}

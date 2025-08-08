@@ -1,3 +1,5 @@
+import type { OptionInterface } from './OptionInterface'
+
 export interface InputAndEditorInterface {
   tag: string
   type: string
@@ -7,4 +9,8 @@ export interface InputAndEditorInterface {
   required: boolean
   placeholder?: string
   readonly?: boolean
+  options?: Array<OptionInterface>
+  hide?: boolean
+  bind?: object
+  events?: object
 }

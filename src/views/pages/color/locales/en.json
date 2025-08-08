@@ -1,0 +1,24 @@
+{
+  "context_title": "Color | Colors",
+  "columns": {
+    "name": "Name",
+    "hex": "Hex",
+    "is_active": "Is active"
+  },
+  "form": {
+    "name": "Name",
+    "hex": "Hex",
+    "placeholder": {
+      "name": "Enter name",
+      "hex": "Enter hex",
+      "is_active": "Is active"
+    }
+  },
+  "flash_messages": {
+    "success": {
+      "color_was_created": "Color was created",
+      "color_was_updated": "Color was updated",
+      "color_was_deleted": "Color was deleted"
+    }
+  }
+}

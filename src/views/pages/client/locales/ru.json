@@ -1,18 +1,26 @@
 {
   "context_title": "Клиент | Клиенты",
   "columns": {
+    "info": "Информация",
     "email": "Электронная почта",
     "first_name": "Имя",
-    "last_name": "Фамилия"
+    "last_name": "Фамилия",
+    "country": "Страна",
+    "phone": "Телефон"
   },
   "form": {
+    "avatar": "Аватар",
     "email": "Адрес электронной почты",
     "first_name": "Имя",
     "last_name": "Фамилия",
+    "country": "Страна",
+    "phone": "Телефон",
     "placeholder": {
       "email": "Введите адрес электронной почты",
       "first_name": "Введите имя",
-      "last_name": "Введите фамилию"
+      "last_name": "Введите фамилию",
+      "country": "Выберите страну",
+      "phone": "Введите телефон"
     }
   },
   "flash_messages": {

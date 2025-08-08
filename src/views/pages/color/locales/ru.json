@@ -1,0 +1,25 @@
+{
+  "context_title": "Цвет | Цветы",
+  "columns": {
+    "name": "Название",
+    "hex": "Hex",
+    "is_active": "Активность"
+  },
+  "form": {
+    "name": "Название",
+    "hex": "Hex",
+    "is_active": "Активность",
+    "placeholder": {
+      "name": "Ведите название",
+      "hex": "Ведите hex",
+      "is_active": "Активность"
+    }
+  },
+  "flash_messages": {
+    "success": {
+      "color_was_created": "Цвет был создан",
+      "color_was_updated": "Цвет был обновлен",
+      "color_was_deleted": "Цвет был удален"
+    }
+  }
+}

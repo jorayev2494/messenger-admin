@@ -13,9 +13,15 @@ export const useProfileStore = defineStore('profile', {
       })
     },
 
-    updateAsync: async (data: ProfileInterface) => {
+    updateAsync: async (data: FormData) => {
       return await new Promise<AxiosResponse>((resolve, reject) => {
-        return httpClient.put('/profile', data).then(resolve).catch(reject)
+        const headers = {
+          'Content-Type': 'multipart/form-data',
+        }
+
+        data.append('_method', 'PUT')
+
+        return httpClient.post('/profile', data, { headers }).then(resolve).catch(reject)
       })
     },
   },

@@ -1,0 +1,33 @@
+{
+  "context_title": "Водитель | Водители",
+  "columns": {
+    "info": "Информация",
+    "email": "Электронная почта",
+    "first_name": "Имя",
+    "last_name": "Фамилия",
+    "country": "Страна",
+    "phone": "Телефон"
+  },
+  "form": {
+    "avatar": "Аватар",
+    "email": "Адрес электронной почты",
+    "first_name": "Имя",
+    "last_name": "Фамилия",
+    "country": "Страна",
+    "phone": "Телефон",
+    "placeholder": {
+      "email": "Введите адрес электронной почты",
+      "first_name": "Введите имя",
+      "last_name": "Введите фамилию",
+      "country": "Выберите страну",
+      "phone": "Введите телефон"
+    }
+  },
+  "flash_messages": {
+    "success": {
+      "driver_was_created": "Водитель был создан",
+      "driver_was_updated": "Водитель был обновлен",
+      "driver_was_deleted": "Водитель был удален"
+    }
+  }
+}

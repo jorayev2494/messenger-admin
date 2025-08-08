@@ -1,0 +1,31 @@
+{
+  "context_title": "Бренд | Бренды",
+  "columns": {
+    "slug": "Слаг",
+    "name": "Название",
+    "founded_year": "Год выпуска",
+    "logo": "Логотип",
+    "is_active": "Активность"
+  },
+  "form": {
+    "slug": "Слаг",
+    "name": "Название",
+    "founded_year": "Год выпуска",
+    "logo": "Логотип",
+    "is_active": "Активность",
+    "placeholder": {
+      "slug": "Ведите слаг",
+      "name": "Ведите название",
+      "founded_year": "Ведите год выпуска",
+      "logo": "Ведите лого",
+      "is_active": "Активность"
+    }
+  },
+  "flash_messages": {
+    "success": {
+      "client_was_created": "Бренд был создан",
+      "client_was_updated": "Бренд был обновлен",
+      "client_was_deleted": "Бренд был удален"
+    }
+  }
+}

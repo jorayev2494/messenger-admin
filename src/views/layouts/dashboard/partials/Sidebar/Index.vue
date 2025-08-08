@@ -2,7 +2,9 @@
   import useIndex from './useIndex';
 
   const {
+    activeClassName,
     navItems,
+    isActive,
   } = useIndex()
 </script>
 
@@ -60,7 +62,12 @@
             <li class="side-nav-item" v-for="({ label, icon, route, meta }, nIdx) of items" :key="nIdx">
               <!-- <pre>2 {{ meta }}</pre> -->
               <template v-if="route && (! (meta?.permission || meta?.anyPermission) ? true : $acl.permission(meta.permission ?? []) || $acl.anyPermission(meta.anyPermission ?? []))">
-                <router-link :to="$tMakeRoute(route)" class="side-nav-link">
+                <!-- :class="activeClassName" aria-current="page" -->
+                <router-link
+                  :to="$tMakeRoute(route)"
+                  class="router-link-active router-link-exact-active side-nav-link"
+                  aria-current="page"
+                >
                   <i :class="icon"></i>
                   <span>{{ $t(label, 2) }}</span>
                 </router-link>

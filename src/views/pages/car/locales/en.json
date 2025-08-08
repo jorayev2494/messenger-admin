@@ -1,0 +1,31 @@
+{
+  "context_title": "Car | Cars",
+  "columns": {
+    "owner": "Owner",
+    "brand": "Brand",
+    "model": "Model",
+    "color": "Color",
+    "vin": "VIN"
+  },
+  "form": {
+    "owner": "Owner",
+    "brand": "Brand",
+    "model": "Model",
+    "color": "Color",
+    "vin": "Vin",
+    "placeholder": {
+      "owner": "Select owner",
+      "brand": "Select brand",
+      "model": "Select model",
+      "color": "Select color",
+      "vin": "Enter VIN"
+    }
+  },
+  "flash_messages": {
+    "success": {
+      "car_was_created": "Car was created",
+      "car_was_updated": "Car was updated",
+      "car_was_deleted": "Car was deleted"
+    }
+  }
+}

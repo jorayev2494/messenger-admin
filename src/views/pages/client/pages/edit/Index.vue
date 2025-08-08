@@ -3,9 +3,11 @@
   import useBehavior from './useBehavior';
 
   const {
-    form,
+    // form,
+    avatarPreview,
     inputs,
     update,
+    uploadAvatar,
   } = useBehavior()
 </script>
 
@@ -17,7 +19,22 @@
         <div class="card-body">
           <h5 class="card-title">Special title treatment</h5>
           <form action="#" method="POST" @submit.prevent="update">
-            <InputsAndEditors :form="form" :inputs="inputs" />
+            <div class="form-group row">
+              <div class="row">
+                <div class="col-lg-3">
+                  <label for="avatar">
+                    <img :src="avatarPreview" :alt="avatarPreview" class="img-fluid avatar-lg rounded-circle" />
+                  </label>
+                </div>
+                <div class="col-lg-6">
+                  <input class="form-control mt-4" id="avatar" type="file" accept="image/*" @change="event => uploadAvatar(event, (avatar: File) => form.avatar = avatar)">
+                </div>
+              </div>
+            </div>
+
+            <hr class="mx-2 my-4">
+
+            <InputsAndEditors :form="inputs.form" :inputs="inputs.getInputs()" />
             <button type="submit" class="btn btn-primary">{{ $t('system.update') }}</button>
           </form>
         </div>

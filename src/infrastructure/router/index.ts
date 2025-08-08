@@ -1,4 +1,9 @@
-import { createRouter, createWebHistory, RouterView } from 'vue-router'
+import {
+  createRouter,
+  createWebHistory,
+  RouterView,
+  type RouteLocationNormalized,
+} from 'vue-router'
 import { checkMiddleware } from './middleware'
 import Tr from '@/infrastructure/translations/translation'
 import routes from './routes'
@@ -23,5 +28,8 @@ const router = createRouter({
 })
 
 router.beforeEach(checkMiddleware)
+router.afterEach((to: RouteLocationNormalized): void => {
+  console.log('After Each: ', to)
+})
 
 export default router

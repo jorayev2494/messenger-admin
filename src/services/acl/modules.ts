@@ -18,6 +18,13 @@
 // import department from '../../views/pages/admin/department/acl/index'
 import manager from '../../views/pages/manager/acl/index'
 import client from '../../views/pages/client/acl/index'
+import driver from '../../views/pages/driver/acl/index'
+import brand from '../../views/pages/brand/acl/index'
+import model from '../../views/pages/model/acl/index'
+import country from '../../views/pages/country/acl/index'
+import place from '../../views/pages/place/acl/index'
+import color from '../../views/pages/color/acl/index'
+import car from '../../views/pages/car/acl/index'
 
 import role from '../../views/pages/role/acl/index'
 // import permission from '../../views/pages/admin/permission/acl/index'
@@ -45,6 +52,13 @@ const modules = {
   // department,
   manager,
   client,
+  driver,
+  brand,
+  model,
+  country,
+  place,
+  color,
+  car,
   role,
   // permission,
   // setting,

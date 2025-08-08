@@ -5,6 +5,7 @@
   },
   "gender": {
     "label": "Gender",
+    "placeholder": "Select gender",
     "items": {
       "male": "Male",
       "female": "Female"
@@ -44,5 +45,6 @@
   "all": "All",
   "search_btn": "Search",
   "notification": "Notification",
-  "back_to": "Back to"
+  "back_to": "Back to",
+  "is_active": "Is active"
 }
