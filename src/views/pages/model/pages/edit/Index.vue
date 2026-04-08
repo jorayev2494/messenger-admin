@@ -1,40 +1,51 @@
 <script setup lang="ts">
   import InputsAndEditors from '@/views/components/InputsAndEditors/Index.vue';
+  import Cropper from '@/views/components/Cropper/Index.vue';
   import useBehavior from './useBehavior';
 
   const {
-    form,
+    // form,
     imagePreview,
     inputBuilder,
     update,
-    uploadImage,
+    selectedImage,
+    imageCropperHandler,
   } = useBehavior()
 </script>
 
 <template>
   <div class="row">
+    <Cropper :file="inputBuilder.form.image" :cropper-handler="imageCropperHandler" :size="{ width: 400, height: 400 }" />
+
     <div class="col-md-5">
       <div class="card">
         <!-- <h5 class="card-header bg-light-subtle">Featured</h5> -->
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
+          <!-- <h5 class="card-title">Special title treatment</h5> -->
           <form action="#" method="POST" @submit.prevent="update">
             <div class="form-group row">
               <div class="row">
-                <div class="col-lg-3">
+                <center>
                   <label for="avatar">
                     <img :src="imagePreview" :alt="imagePreview" class="img-fluid avatar-lg rounded-circle" />
                   </label>
-                </div>
-                <div class="col-lg-6">
-                  <input class="form-control mt-4" id="avatar" type="file" accept="image/*" @change="event => uploadImage(event, (image: File) => form.image = image)">
-                </div>
+                </center>
+                <center>
+                  <div class="col-lg-6">
+                    <input class="form-control mt-4" id="avatar" type="file" accept="image/*" @change="selectedImage">
+                  </div>
+                </center>
               </div>
             </div>
 
             <hr class="mx-2 my-4">
 
-            <InputsAndEditors :form="form" :inputs="inputBuilder.getInputs()" />
+            <!-- <pre>
+              {{ inputBuilder.forms }}
+              {{ inputBuilder.getInputs() }}
+            </pre> -->
+
+            <InputsAndEditors :form="inputBuilder.form" :inputs="inputBuilder.getInputs()" />
             <button type="submit" class="btn btn-primary">{{ $t('system.update') }}</button>
           </form>
         </div>

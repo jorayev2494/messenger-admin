@@ -11,7 +11,13 @@ export default function () {
   const store = useProfileStore()
   const { t } = useI18n()
   const inputs = useInput()
-  const { preview: avatarPreview, upload: uploadAvatar } = useChangeImage()
+  const {
+    preview: avatarPreview,
+    upload: uploadAvatar,
+    changePreview: changeAvatarPreview,
+    makeOriginalImageName: makeOriginalAvatarName,
+    isNotNull: isNotNullAvatar,
+  } = useChangeImage()
 
   const form: Reactive<ProfileInterface> = reactive({
     email: '',
@@ -39,7 +45,10 @@ export default function () {
     fd.append('email', form.email)
     fd.append('first_name', form.first_name)
     fd.append('last_name', form.last_name)
-    fd.append('avatar', form.avatar)
+
+    if (isNotNullAvatar()) {
+      fd.append('avatar', form.avatar, makeOriginalAvatarName())
+    }
 
     return fd
   }
@@ -50,6 +59,16 @@ export default function () {
     })
   }
 
+  const selectedAvatar = (event): void => {
+    uploadAvatar(event, (avatar: File) => {
+      formSetAvatar(avatar)
+    })
+  }
+
+  const avatarCropperHandler = (blob: Blob) => changeAvatarPreview(blob, formSetAvatar)
+
+  const formSetAvatar = (avatar: File) => (form.avatar = avatar)
+
   onMounted((): void => {
     load()
   })
@@ -59,6 +78,7 @@ export default function () {
     avatarPreview,
     inputs,
     update,
-    uploadAvatar,
+    selectedAvatar,
+    avatarCropperHandler,
   }
 }

@@ -2,7 +2,7 @@ import { reactive, type Reactive } from 'vue'
 import type { InputAndEditorInterface } from './InputAndEditorInterface'
 
 export abstract class BaseInputBuilder {
-  public form: Reactive<{ [key: string]: object }> = reactive({})
+  public form: Reactive<{ [key: string]: object | string }> = reactive({})
 
   protected inputs: InputAndEditorInterface[] = []
 

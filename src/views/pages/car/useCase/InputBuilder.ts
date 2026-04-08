@@ -21,7 +21,7 @@ export class InputBuilder extends BaseInputBuilder {
 
   private colorStore: ColorStoreType
 
-  private ownerOptions: Ref<OptionInterface[]> = ref([])
+  public ownerOptions: Ref<OptionInterface[]> = ref([])
 
   private brandOptions: Ref<OptionInterface[]> = ref([])
 
@@ -57,15 +57,9 @@ export class InputBuilder extends BaseInputBuilder {
       required: true,
       placeholder: 'car.form.placeholder.brand',
       events: {
-        change: (event: Event): void => {
-          const target = event.target as HTMLSelectElement
-
-          console.log('Yes', event, target.value)
-          this.loadModels({
-            filters: {
-              brand_uuid: target.value,
-            },
-          })
+        change: (): void => {
+          this.form.model_uuid = null
+          this.loadModels()
         },
       },
     },
@@ -152,9 +146,13 @@ export class InputBuilder extends BaseInputBuilder {
     })
   }
 
-  private loadModels(params: object = {}): void {
-    this.form.model_uuid = null
+  private loadModels(): void {
     this.modelOptions.value.splice(0)
+    const params = {
+      filters: {
+        brand_uuid: this.form.brand_uuid,
+      },
+    }
     this.modelStore.listAsync({ params }).then((response) => {
       response.data
         .map(
@@ -197,7 +195,7 @@ export class InputBuilder extends BaseInputBuilder {
   public mounted(): void {
     this.loadOwners()
     this.loadBrands()
-    // this.loadModels()
+    this.loadModels()
     this.loadColors()
   }
 }

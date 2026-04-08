@@ -1,7 +1,8 @@
 import { useRouter } from 'vue-router'
 import { useModelStore } from '../../store/model'
+import { useBrandStore } from '../../../brand/store/brand'
 import Tr from '@/infrastructure/translations/translation'
-import { onMounted, reactive } from 'vue'
+import { reactive } from 'vue'
 import { RouteName } from '../../routes/RouteName'
 import { toast } from 'vue3-toastify'
 import { useI18n } from 'vue-i18n'
@@ -14,7 +15,8 @@ export default function () {
   const router = useRouter()
   const { t } = useI18n()
   const store = useModelStore()
-  const inputBuilder = new InputBuilder(store)
+  const brandStore = useBrandStore()
+  const inputBuilder = new InputBuilder(brandStore)
     .map((input: InputAndEditorInterface): InputAndEditorInterface => {
       input.hide = !input.required
 

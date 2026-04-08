@@ -2,6 +2,9 @@
   <div v-if="true || form">
     <div class="form-group row" v-for="(input, idx) of inputs" :key="idx">
 
+      <!-- <pre>input: {{ input }}</pre> -->
+      <!-- <pre>form: {{ form }}</pre> -->
+
       <template v-if="! input.hide">
         <label
           v-if="input.label !== null"
@@ -22,16 +25,19 @@
               :id="input.name"
               :required="required ?? input.required"
               :readonly="readonly ?? input.readonly"
+              v-on="input.events ?? {}"
             />
             <input v-else
               :type="inputs[idx]['type']"
               class="form-control"
+              data-date-format="YYYY-MM-DD"
               :name="input.name"
               v-model="form[input.name]"
               :id="input.name"
               :placeholder="$t(input.placeholder ?? input.label)"
               :required="required ?? input.required"
               :readonly="readonly ?? input.readonly"
+              v-on="input.events ?? {}"
             />
           </div>
 
@@ -47,6 +53,7 @@
               :required="required ?? input.required"
               style="height: 100%;"
               :readonly="readonly ?? input.readonly"
+              v-on="input.events ?? {}"
             >
             </textarea>
           </div>
@@ -69,7 +76,7 @@
                 :key="oIdx"
                 :value="option.value"
               >
-                {{ $t(option.label) }}
+                {{ $t(option.label ?? '~') }}
               </option>
             </select>
           </div>

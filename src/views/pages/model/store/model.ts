@@ -19,7 +19,9 @@ export const useModelStore = defineStore('model', {
 
     loadModelsAsync: async ({
       params,
-    }: any): Promise<AxiosResponse<PaginateInterface<ModelInterface>>> => {
+    }: {
+      params: object
+    }): Promise<AxiosResponse<PaginateInterface<ModelInterface>>> => {
       return await new Promise<AxiosResponse<PaginateInterface<ModelInterface>>>(
         (resolve, reject) => {
           return httpClient

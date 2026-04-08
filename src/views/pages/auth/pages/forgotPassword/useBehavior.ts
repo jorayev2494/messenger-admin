@@ -12,7 +12,7 @@ export default function (): object {
   const { t } = useI18n()
 
   const form: ForgotPasswordInterface = reactive({
-    email: 'admin@gmail.com',
+    email: 'manager@gmail.com',
     type: 'restore_password',
   })
 

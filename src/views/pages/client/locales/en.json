@@ -6,7 +6,8 @@
     "first_name": "First name",
     "last_name": "Last name",
     "country": "Country",
-    "phone": "Phone"
+    "phone": "Phone",
+    "date_of_birth": "Date of birth"
   },
   "form": {
     "avatar": "Avatar",
@@ -15,12 +16,14 @@
     "last_name": "Last name",
     "country": "Country",
     "phone": "Phone",
+    "date_of_birth": "Date of birth",
     "placeholder": {
       "email": "Enter email address",
       "first_name": "Enter first name",
       "last_name": "Enter last name",
       "country": "Select country",
-      "phone": "Enter phone"
+      "phone": "Enter phone",
+      "date_of_birth": "Select date of birth"
     }
   },
   "flash_messages": {

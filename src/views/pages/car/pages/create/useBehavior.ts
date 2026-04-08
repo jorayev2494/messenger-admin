@@ -1,24 +1,18 @@
-import { useRouter } from 'vue-router'
 import { useCarStore } from '../../store/car'
 import { InputBuilder } from '../../useCase/InputBuilder'
-import Tr from '@/infrastructure/translations/translation'
-import { reactive, type Reactive } from 'vue'
-import { RouteName } from '../../routes/RouteName'
 import { toast } from 'vue3-toastify'
 import { useI18n } from 'vue-i18n'
-import type { InputAndEditorInterface } from '@/views/components/InputsAndEditors/entities/contracts/InputAndEditorInterface'
 import type { AxiosResponse } from 'axios'
 import type CarInterface from '../../entities/contracts/CarInterface'
+import { onMounted } from 'vue'
 
 export default function () {
-  const router = useRouter()
   const { t } = useI18n()
   const store = useCarStore()
 
   // const form = reactive({})
 
   const inputs = new InputBuilder()
-  inputs.mounted()
   // .map((input: InputAndEditorInterface): InputAndEditorInterface => {
   //   if (input.name === 'gender') {
   //     input.hide = true
@@ -36,6 +30,10 @@ export default function () {
       // })
     })
   }
+
+  onMounted(() => {
+    inputs.mounted()
+  })
 
   return {
     // form,

@@ -1,5 +1,5 @@
 import type { InputAndEditorInterface } from '@/views/components/InputsAndEditors/entities/contracts/InputAndEditorInterface'
-import { ref, type Ref } from 'vue'
+import { reactive, ref, type Reactive, type Ref } from 'vue'
 import { BaseInputBuilder } from '@/views/components/InputsAndEditors/entities/contracts/BaseInputBuilder'
 import { useCountryStore } from '../../country/store/country'
 import type { CountryInterface } from '../../country/entities/contracts/CountryInterface'
@@ -7,7 +7,20 @@ import type { OptionInterface } from '@/views/components/InputsAndEditors/entiti
 
 type CountryTypeStoreType = ReturnType<typeof useCountryStore>
 
+type Form = {
+  email: string
+  first_name: string
+  last_name: string
+  phone: string
+  date_of_birth: string
+  country_uuid: string
+  gender: string
+  avatar?: File
+}
+
 export class InputBuilder extends BaseInputBuilder {
+  public form: Reactive<Form> = reactive({})
+
   private countryStore: CountryTypeStoreType
 
   private countryOptions: Ref<OptionInterface[]> = ref([])
@@ -50,6 +63,24 @@ export class InputBuilder extends BaseInputBuilder {
       label: 'client.form.last_name',
       required: false,
       placeholder: 'client.form.placeholder.last_name',
+    },
+    {
+      tag: 'input',
+      type: 'date',
+      name: 'date_of_birth',
+      field: 'value',
+      label: 'client.form.date_of_birth',
+      required: true,
+      placeholder: 'client.form.placeholder.date_of_birth',
+      events: {
+        // change: (event: Event): void => {
+        // const { d } = useI18n()
+        // let formated = d(target.value)
+        // const { target }: { target: any } = event
+        // const { formatDate } = useDateTimeHelper()
+        // const res = formatDate(new Date(target.value), 'YYYY-MM-DD')
+        // },
+      },
     },
     {
       tag: 'select',
@@ -107,6 +138,7 @@ export class InputBuilder extends BaseInputBuilder {
     this.form.first_name = data.first_name
     this.form.last_name = data.last_name
     this.form.phone = data.phone
+    this.form.date_of_birth = data.date_of_birth
     this.form.gender = data.gender
     this.form.country_uuid = data.country_uuid
     this.form.avatar = ''

@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import InputsAndEditors from '@/views/components/InputsAndEditors/Index.vue';
+  import Cropper from '@/views/components/Cropper/Index.vue';
   import useBehavior from './useBehavior';
 
   const {
@@ -7,12 +8,15 @@
     avatarPreview,
     inputs,
     update,
-    uploadAvatar,
+    selectedAvatar,
+    avatarCropperHandler,
   } = useBehavior()
 </script>
 
 <template>
   <div class="row">
+    <Cropper :file="form.avatar" :cropper-handler="avatarCropperHandler" :size="{ width: 400, height: 400 }" />
+
     <div class="col-md-5">
       <div class="card">
         <!-- <h5 class="card-header bg-light-subtle">Featured</h5> -->
@@ -25,7 +29,7 @@
                 Avatar
               </label>
               <div class="my-2 col-lg-9">
-                <input class="form-control" id="avatar" type="file" accept="image/*" @change="event => uploadAvatar(event, (avatar: File) => form.avatar = avatar)">
+                <input class="form-control" id="avatar" type="file" accept="image/*" @change="selectedAvatar">
               </div>
             </div>
             <button type="submit" class="btn btn-primary">{{ $t('system.update') }}</button>

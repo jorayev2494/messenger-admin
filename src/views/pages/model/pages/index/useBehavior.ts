@@ -40,10 +40,10 @@ export default function () {
 
   const models: Ref<ModelInterface[]> = ref([])
 
-  const brandMapper = (brand: ModelInterface): ModelInterface => {
-    brand.image = brand.image !== null ? brand.image?.url : imagePreview.value
+  const modelMapper = (model: ModelInterface): ModelInterface => {
+    model.image = model.image !== null ? model.image?.url : imagePreview.value
 
-    return brand
+    return model
   }
 
   const loadModels = () => {
@@ -54,7 +54,7 @@ export default function () {
         const { data } = response
 
         paginator.setMetaData(data)
-        models.value = data.data.map(brandMapper)
+        models.value = data.data.map(modelMapper)
       })
       .finally(loader.stop)
   }

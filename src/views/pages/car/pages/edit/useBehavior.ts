@@ -18,13 +18,13 @@ export default function () {
   const { uuid } = <{ uuid: string }>route.params
 
   const inputs = new InputBuilder()
-  inputs.mounted()
+  // inputs.mounted()
 
   const getData = (): object => inputs.form
 
   const load = () => {
     store.showAsync(uuid).then((response: AxiosResponse<CarInterface>): void => {
-      inputs.initForm(response.data)
+      inputs.initForm(response.data).mounted()
     })
   }
 

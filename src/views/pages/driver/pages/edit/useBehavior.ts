@@ -1,7 +1,6 @@
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { useDriverStore } from '../../store/driver'
-import { useInput } from '../../useCases/useInput'
-import { onMounted, reactive, type Reactive } from 'vue'
+import { onMounted } from 'vue'
 import { toast } from 'vue3-toastify'
 import { useI18n } from 'vue-i18n'
 import type { AxiosResponse } from 'axios'
@@ -9,12 +8,19 @@ import type { DriverInterface } from '../../entities/contracts/DriverInterface'
 import useChangeImage from '@/views/components/changeImage/useChangeImage'
 import { InputBuilder } from '../../useCases/InputBuilder'
 import type { InputAndEditorInterface } from '@/views/components/InputsAndEditors/entities/contracts/InputAndEditorInterface'
+import helpers from '@/utils/helpers/helpers'
 
 export default function () {
   const route = useRoute()
   const { t } = useI18n()
   const store = useDriverStore()
-  const { preview: avatarPreview, upload: uploadAvatar } = useChangeImage('avatar')
+  const {
+    preview: avatarPreview,
+    upload: uploadAvatar,
+    changePreview: changeAvatarPreview,
+    makeOriginalImageName: makeOriginalAvatarName,
+    isNotNull: isNotNullAvatar,
+  } = useChangeImage('avatar')
 
   const { uuid } = <{ uuid: string }>route.params
 
@@ -33,10 +39,14 @@ export default function () {
     fd.append('email', inputs.form.email)
     fd.append('first_name', inputs.form.first_name)
     fd.append('last_name', inputs.form.last_name)
-    fd.append('avatar', inputs.form.avatar)
     fd.append('phone', inputs.form.phone)
+    fd.append('date_of_birth', inputs.form.date_of_birth)
     fd.append('country_uuid', inputs.form.country_uuid)
     fd.append('gender', inputs.form.gender)
+
+    if (isNotNullAvatar()) {
+      fd.append('avatar', inputs.form.avatar, makeOriginalAvatarName())
+    }
 
     return fd
   }
@@ -48,6 +58,16 @@ export default function () {
       inputs.initForm(data)
     })
   }
+
+  const selectedAvatar = (event): void => {
+    uploadAvatar(event, (avatar: File) => {
+      formSetAvatar(avatar)
+    })
+  }
+
+  const avatarCropperHandler = (blob: Blob) => changeAvatarPreview(blob, formSetAvatar)
+
+  const formSetAvatar = (avatar: File) => (inputs.form.avatar = avatar)
 
   const update = (): void => {
     store.updateAsync(uuid, getData()).then((): void => {
@@ -66,6 +86,7 @@ export default function () {
     avatarPreview,
     inputs,
     update,
-    uploadAvatar,
+    selectedAvatar,
+    avatarCropperHandler,
   }
 }

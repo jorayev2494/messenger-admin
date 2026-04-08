@@ -1,22 +1,24 @@
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { useBrandStore } from '../../store/brand'
 import { useInput } from '../../useCases/useInput'
-import Tr from '@/infrastructure/translations/translation'
 import { onMounted, reactive } from 'vue'
-import { RouteName } from '../../routes/RouteName'
 import { toast } from 'vue3-toastify'
 import { useI18n } from 'vue-i18n'
 import type { AxiosResponse } from 'axios'
 import type { BrandInterface } from '../../entities/contracts/BrandInterface'
-import type { OptionInterface } from '@/views/components/InputsAndEditors/entities/contracts/OptionInterface'
 import useChangeImage from '@/views/components/changeImage/useChangeImage'
 
 export default function () {
-  const router = useRouter()
   const route = useRoute()
   const { t } = useI18n()
   const store = useBrandStore()
-  const { preview: logoPreview, upload: uploadAvatar } = useChangeImage('avatar')
+  const {
+    preview: logoPreview,
+    upload: uploadLogo,
+    changePreview: changeLogoPreview,
+    makeOriginalImageName: makeOriginalLogoName,
+    isNotNull: isNotNullLogo,
+  } = useChangeImage('avatar')
 
   const { uuid } = <{ uuid: string }>route.params
 
@@ -34,8 +36,12 @@ export default function () {
 
     fd.append('name', form.name)
     fd.append('founded_year', form.founded_year)
-    fd.append('logo', form.logo)
+
     fd.append('is_active', form.is_active ? 1 : 0)
+
+    if (isNotNullLogo()) {
+      fd.append('logo', form.logo, makeOriginalLogoName())
+    }
 
     return fd
   }
@@ -54,6 +60,16 @@ export default function () {
     })
   }
 
+  const selectedLogo = (event): void => {
+    uploadLogo(event, (logo: File) => {
+      formSetLogo(logo)
+    })
+  }
+
+  const logoCropperHandler = (blob: Blob) => changeLogoPreview(blob, formSetLogo)
+
+  const formSetLogo = (logo: File) => (form.logo = logo)
+
   const update = (): void => {
     store.updateAsync(uuid, getData()).then((): void => {
       // router.push(Tr.route({ name: RouteName.INDEX })).then(() => {
@@ -71,6 +87,7 @@ export default function () {
     logoPreview,
     inputs,
     update,
-    uploadAvatar,
+    selectedLogo,
+    logoCropperHandler,
   }
 }

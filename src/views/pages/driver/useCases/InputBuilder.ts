@@ -4,6 +4,7 @@ import { BaseInputBuilder } from '@/views/components/InputsAndEditors/entities/c
 import { useCountryStore } from '../../country/store/country'
 import type { CountryInterface } from '../../country/entities/contracts/CountryInterface'
 import type { OptionInterface } from '@/views/components/InputsAndEditors/entities/contracts/OptionInterface'
+import useDateTimeHelper from '@/utils/helpers/useDateTimeHelper'
 
 type CountryTypeStoreType = ReturnType<typeof useCountryStore>
 
@@ -52,6 +53,24 @@ export class InputBuilder extends BaseInputBuilder {
       placeholder: 'driver.form.placeholder.last_name',
     },
     {
+      tag: 'input',
+      type: 'date',
+      name: 'date_of_birth',
+      field: 'value',
+      label: 'driver.form.date_of_birth',
+      required: true,
+      placeholder: 'driver.form.placeholder.date_of_birth',
+      events: {
+        // change: (event: Event): void => {
+        // const { d } = useI18n()
+        // let formated = d(target.value)
+        // const { target }: { target: any } = event
+        // const { formatDate } = useDateTimeHelper()
+        // const res = formatDate(new Date(target.value), 'YYYY-MM-DD')
+        // },
+      },
+    },
+    {
       tag: 'select',
       type: 'text',
       name: 'country_uuid',
@@ -88,7 +107,7 @@ export class InputBuilder extends BaseInputBuilder {
   }
 
   private loadCountries(): void {
-    this.countryStore.listAsync().then((response) => {
+    this.countryStore.listAsync().then((response): void => {
       response.data
         .map(
           (country: CountryInterface): OptionInterface => ({
@@ -107,6 +126,7 @@ export class InputBuilder extends BaseInputBuilder {
     this.form.first_name = data.first_name
     this.form.last_name = data.last_name
     this.form.phone = data.phone
+    this.form.date_of_birth = data.date_of_birth
     this.form.gender = data.gender
     this.form.country_uuid = data.country_uuid
     this.form.avatar = ''
@@ -114,7 +134,9 @@ export class InputBuilder extends BaseInputBuilder {
     return this
   }
 
-  public mounted(): void {
+  public mounted(): InputBuilder {
     this.loadCountries()
+
+    return this
   }
 }

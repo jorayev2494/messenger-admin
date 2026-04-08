@@ -103,7 +103,7 @@ export class InputBuilder extends BaseInputBuilder {
       field: 'value',
       options: this.placeOptions.value,
       label: 'place.form.parent',
-      required: true,
+      required: false,
       placeholder: 'place.form.placeholder.parent',
       events: {
         change: (event: Event): void => {

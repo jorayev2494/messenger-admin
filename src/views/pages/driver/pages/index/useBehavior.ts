@@ -16,7 +16,7 @@ export default function () {
   const paginator = usePaginator<DriverInterface>()
   const { t } = useI18n()
   const loader = useLoader()
-  const { preview: avatarPreview } = useChangeImage()
+  const { preview: avatarPreview } = useChangeImage('avatar')
   const { checkPermissions, protectPermission } = useACLProtection()
 
   const columns: object[] = [

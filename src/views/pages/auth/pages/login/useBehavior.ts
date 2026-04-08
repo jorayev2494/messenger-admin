@@ -12,7 +12,7 @@ export default function () {
   const { t } = useI18n()
 
   const form: LoginInterface = reactive({
-    email: 'admin@gmail.com',
+    email: 'manager@gmail.com',
     password: '12345Secret!',
   })
 
@@ -20,10 +20,11 @@ export default function () {
 
   const login = () => {
     useAuth.login(getData()).then(() => {
-      router.push({ name: 'dashboard' }).then(() => {
+      router.push({ name: 'index' }).then(() => {
         toast.success(
           t('auth.login.flash_messages.success.welcome', {
-            first_name: store.getAuthData?.first_name,
+            first_name: 'Hello',
+            // first_name: store.getAuthData?.first_name,
           }),
         )
       })

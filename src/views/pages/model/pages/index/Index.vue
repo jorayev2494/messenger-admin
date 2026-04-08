@@ -46,7 +46,7 @@
       <template #logo="data">
         <div class="row">
           <!-- <div class="col-md-3"> -->
-            <img :src="data.value.logo" :alt="data.value.logo" class="img-fluid avatar-md rounded-circle" />
+            <img :src="data.value.image" :alt="data.value.image" class="img-fluid avatar-md rounded-circle" />
           <!-- </div> -->
           <!-- <div class="col-md-4">
             <p class="mt-0">
